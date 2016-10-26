@@ -8,20 +8,22 @@ function Order() {
 }
 
 function createNewOrder() {
+    console.log("Creating new order...")
     var promise = new Promise((resolve, reject) => {
         setInterval(() => {
-            var orderData = { id: 'xxx', items: [{}, {}] };
+            var orderData = { id: 'xxx', items: [{id: 'i1'}, {id: 'i2'}] };
             resolve(orderData);
-        }, 1000)
+        }, 2000)
     });
 
     return promise
 }
 
 Order.prototype.processOrder = function process(data) {
-    createNewOrder().then((orderData) => this.emit('done', orderData)).catch((err) => this.emit('fail', err))
+    createNewOrder().then((orderData) => this.emit('done', orderData))
+                    .catch((err) => this.emit('fail', err))
 }
 
-inherits(Order, EventEmitter)
+inherits(Order, EventEmitter);
 
-moudule.exports = Order;
+module.exports = Order;
