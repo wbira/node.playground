@@ -9,6 +9,7 @@ function Order() {
 
 function createNewOrder() {
     console.log("Creating new order...")
+    //some fake logic
     var promise = new Promise((resolve, reject) => {
         setInterval(() => {
             var orderData = { id: 'xxx', items: [{id: 'i1'}, {id: 'i2'}] };
@@ -19,11 +20,11 @@ function createNewOrder() {
     return promise
 }
 
-Order.prototype.processOrder = function process(data) {
+Order.prototype.create = function create() {
     createNewOrder().then((orderData) => this.emit('done', orderData))
                     .catch((err) => this.emit('fail', err))
 }
 
 inherits(Order, EventEmitter);
 
-module.exports = Order;
+module.exports.Order = Order();
