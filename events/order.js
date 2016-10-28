@@ -21,7 +21,7 @@ function createNewOrder() {
 }
 
 Order.prototype.create = function create() {
-    createNewOrder().then((orderData) => this.emit('done', orderData))
+    createNewOrder().then((orderData) => this.emit('orderCreated', orderData))
                     .catch((err) => this.emit('fail', err))
 }
 
