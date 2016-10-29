@@ -9,6 +9,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "servicebus": "^2.0.5"
+    "servicebus": "^2.0.5",
+    "through2": "^2.0.1"
   }
 }
